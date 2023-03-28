@@ -1,6 +1,7 @@
 JOIN
 ________________________________________________________________________________________________________
 1. Selezionare tutti gli studenti iscritti al Corso di Laurea in Economia
+
 SELECT students.name, degrees.name, courses.id
 FROM `students`
 JOIN degrees
@@ -10,6 +11,14 @@ ON degrees.id = courses.degree_id
 WHERE degrees.name = 'Corso di Laurea in Economia';
 ________________________________________________________________________________________________________
 2. Selezionare tutti i Corsi di Laurea Magistrale del Dipartimento di Neuroscienze
+
+SELECT courses.name, degrees.level, departments.name 
+FROM `courses`
+JOIN degrees
+ON courses.degree_id = degrees.id
+JOIN departments
+ON degrees.department_id = departments.id
+WHERE degrees.level = 'magistrale' AND departments.name = 'Dipartimento di Neuroscienze';
 ________________________________________________________________________________________________________
 3. Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)
 ________________________________________________________________________________________________________
